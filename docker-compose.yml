@@ -1,0 +1,46 @@
+version: '3.3'
+
+services:
+  mongo:
+    image: mongo:4.4
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - 27017:27017  
+    # container_name: ${MONGODB_CONTAINER_NAME}
+    # restart: always
+    # env_file: .env
+    # ports:
+    #   - "${MONGO_PORT}:27017"
+    # volumes:
+    #   - mongo_data:/data/db
+    # networks:
+    #   - legal_network
+    # healthcheck:
+    #   test: [ "CMD-SHELL", "mongosh --eval 'db.runCommand({ ping: 1 })'" ]
+    #   interval: 10s
+    #   retries: 5
+    #   timeout: 5s
+
+#   app:
+#     build: .
+#     container_name: ${NEST_CONTAINER_NAME}
+#     env_file: .env
+#     depends_on:
+#       mongo:
+#         condition: service_healthy
+#     networks:
+#       - legal_network
+#     volumes:
+#       - .:/usr/src/app
+#       - /usr/src/app/node_modules
+#     command: npm run start:dev
+
+# volumes:
+#   mongo_data:
+
+
+# networks:
+#   legal_network:
+#     driver: bridge
